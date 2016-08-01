@@ -13,6 +13,11 @@ class AlbumsController < OpenReadController
     # render json: Album.find(params[:id])
   end
 
+  def new
+    @album = current_user.albums.build
+    @genre = Genre.all.map { |genre| genre.name, genre.id }
+  end
+
   def create
     @album = current_user.albums.build(album_params)
 
