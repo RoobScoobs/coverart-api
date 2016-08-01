@@ -15,7 +15,7 @@ class AlbumsController < OpenReadController
 
   def new
     @album = current_user.albums.build
-    @genre = Genre.all.map { |genre| genre.name, genre.id }
+    @genres = Genre.all.map { |genre| [genre.name, genre.id] }
   end
 
   def create
@@ -30,6 +30,7 @@ class AlbumsController < OpenReadController
   end
 
   def update
+    @album.genre_id = params[:genre_id]
     if @album.update(album_params)
       head :no_content
     else
