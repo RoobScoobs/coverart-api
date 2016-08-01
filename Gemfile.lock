@@ -133,6 +133,9 @@ GEM
       rspec-mocks (~> 3.4.0)
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
+    simple_form (3.2.1)
+      actionpack (> 4, < 5.1)
+      activemodel (> 4, < 5.1)
     slop (3.6.0)
     spring (1.6.4)
     spring-commands-rspec (1.0.4)
@@ -167,8 +170,12 @@ DEPENDENCIES
   rb-readline
   rspec (~> 3.4.0)
   rspec-rails (~> 3.4.2)
+  simple_form (~> 3.2, >= 3.2.1)
   spring (~> 1.6.4)
   spring-commands-rspec (~> 1.0.4)
 
+RUBY VERSION
+   ruby 2.3.0p0
+
 BUNDLED WITH
-   1.11.2
+   1.12.5

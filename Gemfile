@@ -7,6 +7,8 @@ gem 'active_model_serializers', '= 0.10.0.rc4'
 gem 'rack-cors', require: 'rack/cors'
 gem 'pg'
 gem 'bcrypt', '~> 3.1.11'
+gem 'simple_form', '~> 3.2', '>= 3.2.1'
+# gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 
 group :production do
   gem 'rails_12factor', '~> 0.0.3'
