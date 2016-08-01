@@ -13,8 +13,6 @@ class AlbumsController < OpenReadController
     # render json: Album.find(params[:id])
   end
 
-  end
-
   def create
     @album = current_user.albums.build(album_params)
 
@@ -23,6 +21,20 @@ class AlbumsController < OpenReadController
     else
       render json: @album.errors, status: :unprocessable_entity
     end
+  end
+
+  def update
+    if @album.update(album_params)
+      head :no_content
+    else
+      render json: @example.errors, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @album.destroy
+
+    head :no_content
   end
 
   # def set_album
