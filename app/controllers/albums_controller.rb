@@ -53,7 +53,7 @@ class AlbumsController < OpenReadController
   end
 
   def album_params
-    params.require(:album).permit(:title, :description, :artist)
+    params.require(:album).permit(:title, :description, :artist, :genre_id)
   end
 
   private :find_album, :album_params
