@@ -4,8 +4,13 @@ class AlbumsController < OpenReadController
 
 
   def index
-    @albums = Album.all.order("created_at DESC")
-
+    if params[:genre].blank?
+      @albums = Album.all.order("created_at DESC")
+    else
+      @genre_id = Genre.find_by(name: params[:genre]).id
+      @albums = Album.where(:genre_id => @genre_id).order("created_at DESC")
+    end
+    
     render json: @albums
   end
 
