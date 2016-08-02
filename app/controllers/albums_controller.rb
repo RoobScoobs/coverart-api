@@ -10,7 +10,7 @@ class AlbumsController < OpenReadController
       @genre_id = Genre.find_by(name: params[:genre]).id
       @albums = Album.where(:genre_id => @genre_id).order("created_at DESC")
     end
-    
+
     render json: @albums
   end
 
@@ -55,7 +55,7 @@ class AlbumsController < OpenReadController
 
   def find_album
     @album = Album.find(params[:id])
-    # render json: @album
+    render json: @album
   end
 
   def album_params
