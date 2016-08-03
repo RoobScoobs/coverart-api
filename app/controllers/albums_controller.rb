@@ -1,5 +1,5 @@
 class AlbumsController < OpenReadController
-  # before_action :set_album, only: [:update, :destroy]
+  before_action :set_album, only: [:update, :destroy]
   before_action :find_album, only: [:show, :update, :destroy]
 
 
@@ -15,7 +15,7 @@ class AlbumsController < OpenReadController
   end
 
   def show
-    # render json: Album.find(params[:id])
+    render json: @album
   end
 
   def new
@@ -49,19 +49,18 @@ class AlbumsController < OpenReadController
     head :no_content
   end
 
-  # def set_album
-  #   @album = current_user.albums.find(params[:id])
-  # end
+  def set_album
+    @album = current_user.albums.find(params[:id])
+  end
 
   def find_album
     @album = Album.find(params[:id])
-    render json: @album
   end
 
   def album_params
     params.require(:album).permit(:title, :description, :artist, :genre_id)
   end
 
-  private :find_album, :album_params
+  private :find_album, :album_params, :set_album
 
 end
